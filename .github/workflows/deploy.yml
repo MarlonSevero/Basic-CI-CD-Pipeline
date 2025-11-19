@@ -49,6 +49,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo rm -rf /var/lib/tomcat9/work/*"
           
           echo "▶️ Iniciando Tomcat..."
-          ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo restart-tomcat9"
+          ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo restart-tomcat"
 
           echo "✅ Deploy finalizado com sucesso!"
