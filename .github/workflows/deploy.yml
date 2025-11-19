@@ -42,11 +42,11 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo stop-tomcat"
 
           echo "🔄 Atualizando WAR..."
-          ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "rm -rf /var/lib/tomcat9/webapps/Fintech /var/lib/tomcat9/webapps/Fintech.war"
+          ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo rm -rf /var/lib/tomcat9/webapps/Fintech /var/lib/tomcat9/webapps/Fintech.war"
           ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "mv /tmp/Fintech.war /var/lib/tomcat9/webapps/"
 
           echo "🧹 Limpando cache (work dir)..."
-          ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "rm -rf /var/lib/tomcat9/work/*"
+          ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo rm -rf /var/lib/tomcat9/work/*"
           
           echo "▶️ Iniciando Tomcat..."
           ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST "sudo restart-tomcat9"
